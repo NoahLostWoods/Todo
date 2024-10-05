@@ -20,4 +20,13 @@ export class TodoComponent {
       this.newTodo = '';
     }
   }
+
+  removeAllTodos(){
+    this.todos = signal<string[]>([]);
+  }
+
+  removeTodo(index: number){
+    this.todos.update(todos => todos.filter((_, i) => i !== index));
+
+  }
 }
